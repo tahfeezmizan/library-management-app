@@ -1,23 +1,50 @@
 import { model, Schema } from "mongoose";
 
-const booksSchema = new Schema<BooksDemo>({
-    title : { type: String , required : true },
-    author : { type: String , required : true },
-    genre : { 
-        type: String , 
-        required : true ,
-        enum: [ "FICTION", "NON_FICTION", "SCIENCE", "HISTORY" , "BIOGRAPHY" , "FANTASY"]
+const booksSchema = new Schema<BooksDemo>(
+  {
+    title: {
+      type: String,
+      required: [true, " Book title is required"],
     },
-    isbn : { type: String , required : true } ,
-    description : { type: String },
-    copies : {type : Number , required : true} ,
-    available:{ type: Boolean , default: true },
-},
- {
-    timestamps: true, 
+    author: {
+      type: String,
+      required: [true, "Author name is required"],
+    },
+    genre: {
+      type: String,
+      required: [true, " Genre is required"],
+      enum: {
+        values: [
+          "FICTION",
+          "NON_FICTION",
+          "SCIENCE",
+          "HISTORY",
+          "BIOGRAPHY",
+          "FANTASY",
+        ],
+      },
+    },
+    isbn: {
+      type: String,
+      required: [true, " ISBN is required"],
+    },
+    description: {
+      type: String,
+    },
+    copies: {
+      type: Number,
+      required: [true, " Number of copies is required"],
+    },
+    available: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  {
+    timestamps: true,
   }
-)
+);
 
-const Books = model<BooksDemo>("books" , booksSchema)
+const Books = model<BooksDemo>("books", booksSchema);
 
 export default Books;

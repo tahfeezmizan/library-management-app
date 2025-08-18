@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import Books from "./books.model";
+import Books from "../models/books.model";
+
 
 export const createBook = async (req: Request, res: Response) => {
   try {
