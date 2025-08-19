@@ -54,7 +54,7 @@ A robust RESTful API built with **Express.js**, **TypeScript**, and **MongoDB (M
 ```bash
 # Clone the repository
 git clone https://github.com/tahfeezmizan/library-management-app
-cd library-management-api
+cd library-management-app
 
 # Install dependencies
 npm install
